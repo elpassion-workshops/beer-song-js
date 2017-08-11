@@ -37,13 +37,13 @@ module.exports = function(){
     verse: function(verse){
       return one_turn(verse)
     },
-    sing: function(first, last){
+    sing: function(first, last=0){
       result=""
       while(first >= last) {
-        result += one_turn(first) + (first!=last?'\n':'');
-        first--;
+        result += one_turn(first) + (first!==last?'\n':'')
+        first--
       }
       return result
     }
-  };
-};
+  }
+}
