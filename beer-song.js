@@ -47,7 +47,7 @@ module.exports = function(){
     verse: (verse) => {
       return one_verse(verse);
     },
-    sing: (from, to) => {
+    sing: (from, to=0) => {
       return song(from, to);
     }
   };
