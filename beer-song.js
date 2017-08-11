@@ -29,9 +29,26 @@ module.exports = function(){
     return `\nTake ${bottles > 0 ? "one" : "it"} down and pass it around, ${pluralize(bottles)} of beer on the wall.\n`;
   }
 
+  var song = (from, to) => {
+    var song = '';
+    while(from >= to){
+      song = song.concat(one_verse(from) + "\n");
+      from -= 1;
+    }
+    return song.trim() + "\n";
+  }
+
+
+  var one_verse = (verse) => {
+    return first_line(verse) + second_line(verse - 1);
+  }
+
   return {
     verse: (verse) => {
-      return first_line(verse) + second_line(verse - 1);
+      return one_verse(verse);
+    },
+    sing: (from, to) => {
+      return song(from, to);
     }
   };
 };
