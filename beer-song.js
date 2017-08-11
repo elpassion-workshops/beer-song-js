@@ -2,9 +2,9 @@ module.exports = function(){
   
   function first_verse(verse) {
     if (verse === 1){
-      return `${verse} bottle`;
+      return `${verse} bottle of beer on the wall, ${verse} bottle of beer.`;
     } else 
-      return `${verse} bottles`;
+      return `${verse} bottles of beer on the wall, ${verse} bottles of beer.`;
   }
 
   function secound_verse(verse) {
@@ -19,7 +19,7 @@ module.exports = function(){
 
   return {
     verse: function(verse){
-      return `${first_verse(verse)} of beer on the wall, ${first_verse(verse)} of beer.\n${secound_verse(verse - 1)}`;
+      return `${first_verse(verse)}\n${secound_verse(verse - 1)}`;
     }
   };
 };
