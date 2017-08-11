@@ -29,9 +29,21 @@ module.exports = function(){
     }
   }
 
+  var one_turn = function(number){
+    return _first_verse(number) + _last_verse(number - 1)
+  }
+
   return {
     verse: function(verse){
-      return _first_verse(verse) + _last_verse(verse - 1)
+      return one_turn(verse)
+    },
+    sing: function(first, last){
+      result=""
+      while(first >= last) {
+        result += one_turn(first) + (first!=last?'\n':'');
+        first--;
+      }
+      return result
     }
   };
 };
