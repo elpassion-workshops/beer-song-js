@@ -1,5 +1,5 @@
 module.exports = function(){
-  var pluralize = function(bottles){
+  var pluralize = (bottles) => {
     var bottles_pluralized;
     switch(bottles){
       case 0:
@@ -14,16 +14,16 @@ module.exports = function(){
     return bottles_pluralized;
   }
 
-  var first_line = function(bottles){
+  var first_line = (bottles) => {
     return `${pluralize(bottles)} of beer on the wall, ${pluralize(bottles)} of beer.`;
   }
 
-  var second_line = function(bottles){
+  var second_line = (bottles) => {
     return `\nTake ${bottles > 0 ? "one" : "it"} down and pass it around, ${pluralize(bottles)} of beer on the wall.\n`;
   }
 
   return {
-    verse: function(verse){
+    verse: (verse) => {
       return first_line(verse) + second_line(verse - 1);
     }
   };
