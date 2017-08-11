@@ -14,11 +14,18 @@ module.exports = function(){
     return bottles_pluralized;
   }
 
+  var capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   var first_line = (bottles) => {
-    return `${pluralize(bottles)} of beer on the wall, ${pluralize(bottles)} of beer.`;
+    return `${capitalize(pluralize(bottles))} of beer on the wall, ${pluralize(bottles)} of beer.`;
   }
 
   var second_line = (bottles) => {
+    if(bottles == -1){
+      return '\nGo to the store and buy some more, 99 bottles of beer on the wall.\n';
+    }
     return `\nTake ${bottles > 0 ? "one" : "it"} down and pass it around, ${pluralize(bottles)} of beer on the wall.\n`;
   }
 

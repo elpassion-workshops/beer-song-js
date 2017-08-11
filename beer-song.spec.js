@@ -18,7 +18,7 @@ describe('BeerSong', function() {
     expect(song.verse(1)).toEqual(expected);
   });
 
-  xit('handles 0 bottles', function() {
+  it('handles 0 bottles', function() {
     var expected = 'No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n';
     expect(song.verse(0)).toEqual(expected);
   });
