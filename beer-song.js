@@ -1,11 +1,25 @@
 module.exports = function(){
+  var pluralize = function(bottles){
+    var bottles_pluralized;
+    switch(bottles){
+      case 0:
+        bottles_pluralized = "no more bottles";
+        break;
+      case 1:
+        bottles_pluralized = "1 bottle";
+        break;
+      default:
+        bottles_pluralized = `${bottles} bottles`;
+    }
+    return bottles_pluralized;
+  }
+
   var first_line = function(bottles){
-    return `${bottles} bottles of beer on the wall, ${bottles} bottles of beer.`;
+    return `${pluralize(bottles)} of beer on the wall, ${pluralize(bottles)} of beer.`;
   }
 
   var second_line = function(bottles){
-    var bottles_pluralized = bottles > 1 ? "bottles" : "bottle"
-    return `\nTake one down and pass it around, ${bottles} ${bottles_pluralized} of beer on the wall.\n`;
+    return `\nTake ${bottles > 0 ? "one" : "it"} down and pass it around, ${pluralize(bottles)} of beer on the wall.\n`;
   }
 
   return {
