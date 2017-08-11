@@ -1,7 +1,19 @@
 module.exports = function(){
+  
+  var _format = function(number){
+    switch(number){
+      case 1:
+        return number+" bottle"
+        break;
+      default:
+        return number+" bottles"
+        break;
+    }
+  }
+
   return {
     verse: function(verse){
-      return "8 bottles of beer on the wall, 8 bottles of beer.\nTake one down and pass it around, 7 bottles of beer on the wall.\n"
+      return _format(verse) + " of beer on the wall, " + _format(verse) +" of beer.\nTake one down and pass it around, "+_format(verse - 1)+" of beer on the wall.\n"
     }
   };
 };
